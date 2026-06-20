@@ -1,0 +1,19 @@
+- baseInfo:
+    api_name: List Solvers
+    url: /api/v1/solvers
+    method: get
+    header:
+      Content-Type: application/json
+      token: ${get_extract_data(token)}
+  testCase:
+    - case_name: Get solvers with valid token
+      validation:
+        - contains: {status_code: 200}
+        - eq: {error_code: "0000"}
+
+    - case_name: Get solvers without token
+      header:
+        Content-Type: application/json
+        token: ""
+      validation:
+        - contains: {status_code: 401}

@@ -1,0 +1,60 @@
+- baseInfo:
+    api_name: Submit Benchmark
+    url: /api/v1/benchmark/submit
+    method: post
+    header:
+      Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+      token: ${get_extract_data(token)}
+  testCase:
+    - case_name: Submit benchmark for full flow test
+      params:
+        library: scipy
+        problem: bruss
+        solver: RK45
+        tolerance: 0.000001
+        thread_count: 2
+      validation:
+        - contains: {status_code: 200}
+        - eq: {error_code: "0000"}
+      extract:
+        benchmark_id: $.benchmark_id
+
+- baseInfo:
+    api_name: Get Benchmark Status
+    url: /api/v1/benchmark/${get_extract_data(benchmark_id)}/status
+    method: get
+    header:
+      Content-Type: application/json
+      token: ${get_extract_data(token)}
+  testCase:
+    - case_name: Check benchmark status is completed
+      validation:
+        - contains: {status_code: 200}
+        - eq: {error_code: "0000"}
+        - eq: {status: "completed"}
+
+- baseInfo:
+    api_name: Get Benchmark Results
+    url: /api/v1/benchmark/${get_extract_data(benchmark_id)}/results
+    method: get
+    header:
+      Content-Type: application/json
+      token: ${get_extract_data(token)}
+  testCase:
+    - case_name: Verify benchmark results
+      validation:
+        - contains: {status_code: 200}
+        - eq: {error_code: "0000"}
+
+- baseInfo:
+    api_name: Get Benchmark Logs
+    url: /api/v1/benchmark/${get_extract_data(benchmark_id)}/logs
+    method: get
+    header:
+      Content-Type: application/json
+      token: ${get_extract_data(token)}
+  testCase:
+    - case_name: Verify benchmark logs in MongoDB
+      validation:
+        - contains: {status_code: 200}
+        - eq: {error_code: "0000"}

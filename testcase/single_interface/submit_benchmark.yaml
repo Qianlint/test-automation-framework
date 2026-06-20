@@ -1,0 +1,47 @@
+- baseInfo:
+    api_name: Submit Benchmark
+    url: /api/v1/benchmark/submit
+    method: post
+    header:
+      Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+      token: ${get_extract_data(token)}
+  testCase:
+    - case_name: Submit valid benchmark
+      params:
+        library: scipy
+        problem: bruss
+        solver: RK45
+        tolerance: 0.000001
+        thread_count: 1
+      validation:
+        - contains: {status_code: 200}
+        - eq: {error_code: "0000"}
+      extract:
+        benchmark_id: $.benchmark_id
+
+    - case_name: Submit with invalid solver
+      params:
+        library: scipy
+        problem: bruss
+        solver: INVALID_SOLVER
+        tolerance: 0.000001
+      validation:
+        - contains: {status_code: 400}
+
+    - case_name: Submit with invalid problem
+      params:
+        library: scipy
+        problem: fake_problem
+        solver: RK45
+        tolerance: 0.000001
+      validation:
+        - contains: {status_code: 400}
+
+    - case_name: Submit with negative tolerance
+      params:
+        library: scipy
+        problem: bruss
+        solver: RK45
+        tolerance: -0.001
+      validation:
+        - contains: {status_code: 400}
