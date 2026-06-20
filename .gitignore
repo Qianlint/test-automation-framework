@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+logs/
+report/temp/
+report/allureReport/
+extract.yaml
+*.db

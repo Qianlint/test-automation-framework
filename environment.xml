@@ -1,0 +1,34 @@
+<environment>
+    <parameter>
+        <key>Project</key>
+        <value>ODE Benchmark API Test Automation</value>
+    </parameter>
+    <parameter>
+        <key>Environment</key>
+        <value>Test</value>
+    </parameter>
+    <parameter>
+        <key>Base URL</key>
+        <value>http://127.0.0.1:8787</value>
+    </parameter>
+    <parameter>
+        <key>System</key>
+        <value>Ubuntu 24.04</value>
+    </parameter>
+    <parameter>
+        <key>Python Version</key>
+        <value>3.12</value>
+    </parameter>
+    <parameter>
+        <key>Allure Version</key>
+        <value>allure-2.13.8</value>
+    </parameter>
+    <parameter>
+        <key>Author</key>
+        <value>Qianlin Tang</value>
+    </parameter>
+    <parameter>
+        <key>Email</key>
+        <value>tangqianlin09@gmail.com</value>
+    </parameter>
+</environment>
