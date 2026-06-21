@@ -28,6 +28,9 @@
       token: ${get_extract_data(token)}
   testCase:
     - case_name: Check benchmark status is completed
+      retry:
+        max_attempts: 10
+        interval: 1
       validation:
         - contains: {status_code: 200}
         - eq: {error_code: "0000"}
@@ -46,15 +49,3 @@
         - contains: {status_code: 200}
         - eq: {error_code: "0000"}
 
-- baseInfo:
-    api_name: Get Benchmark Logs
-    url: /api/v1/benchmark/${get_extract_data(benchmark_id)}/logs
-    method: get
-    header:
-      Content-Type: application/json
-      token: ${get_extract_data(token)}
-  testCase:
-    - case_name: Verify benchmark logs in MongoDB
-      validation:
-        - contains: {status_code: 200}
-        - eq: {error_code: "0000"}

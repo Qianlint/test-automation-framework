@@ -1,3 +1,4 @@
+import time
 import json
 import re
 from json.decoder import JSONDecodeError
@@ -85,6 +86,9 @@ class RequestBase:
             # Process value extraction.
             extract = test_case.pop('extract', None)
             extract_list = test_case.pop('extract_list', None)
+            retry_config = test_case.pop('retry', None)
+            max_attempts = retry_config.get('max_attempts', 1) if retry_config else 1
+            interval = retry_config.get('interval', 1) if retry_config else 1
             # Process API request parameters.
             for key, value in test_case.items():
                 if key in params_type:
@@ -102,20 +106,29 @@ class RequestBase:
             status_code = res.status_code
             allure.attach(self.allure_attach_response(res.json()), 'API response', allure.attachment_type.TEXT)
 
-            try:
-                res_json = json.loads(res.text)  # Convert JSON to a dictionary.
-                if extract is not None:
-                    self.extract_data(extract, res.text)
-                if extract_list is not None:
-                    self.extract_data_list(extract_list, res.text)
-                # Process assertions.
-                self.asserts.assert_result(validation, res_json, status_code)
-            except JSONDecodeError as js:
-                logs.error('System error or API request was not sent!')
-                raise js
-            except Exception as e:
-                logs.error(e)
-                raise e
+            for attempt in range(max_attempts):
+                res = self.run.run_main(name=api_name, url=url, case_name=case_name, header=header, method=method,
+                                        file=files, cookies=cookie, **test_case)
+                status_code = res.status_code
+                allure.attach(self.allure_attach_response(res.json()), 'API response', allure.attachment_type.TEXT)
+                try:
+                    res_json = json.loads(res.text)
+                    if extract is not None:
+                        self.extract_data(extract, res.text)
+                    if extract_list is not None:
+                        self.extract_data_list(extract_list, res.text)
+                    self.asserts.assert_result(validation, res_json, status_code)
+                    break
+                except JSONDecodeError as js:
+                    logs.error('System error or API request was not sent!')
+                    raise js
+                except Exception as e:
+                    if attempt < max_attempts - 1:
+                        #logs.info(f'Attempt {attempt + 1}/{max_attempts}: assertion not met yet, retrying in {interval}s...'))
+                        time.sleep(interval)
+                    else:
+                        logs.error(e)
+                        raise e
 
         except Exception as e:
             raise e

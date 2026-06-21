@@ -60,7 +60,12 @@ class Assertions:
         flag = 0
         if isinstance(actual_results, dict) and isinstance(expected_results, dict):
             # Find the key shared by the actual and expected results
-            common_keys = list(expected_results.keys() & actual_results.keys())[0]
+            common_keys_list = list(expected_results.keys() & actual_results.keys())
+            if not common_keys_list:
+                logs.error(f"Equality assertion failed: no common keys between expected {expected_results} and actual {actual_results}")
+                flag += 1
+                return flag
+            common_keys = common_keys_list[0]
             # Build a new actual-result dictionary using the shared key
             new_actual_results = {common_keys: actual_results[common_keys]}
             eq_assert = operator.eq(new_actual_results, expected_results)
@@ -195,8 +200,6 @@ class Assertions:
             raise exceptions
 
         if all_flag == 0:
-            logs.info("Test passed")
             assert True
         else:
-            logs.error("Test failed")
             assert False

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import time
+_start_time = time.time()
 
 import pytest
 
@@ -41,7 +42,7 @@ def generate_test_summary(terminalreporter):
     failed = len(terminalreporter.stats.get('failed', []))
     error = len(terminalreporter.stats.get('error', []))
     skipped = len(terminalreporter.stats.get('skipped', []))
-    duration = time.time() - terminalreporter._session_start
+    duration = time.time() - _start_time
 
     summary = f"""
     Automated test results are shown below. Pay particular attention to failed API tests:
