@@ -1,0 +1,12 @@
+{
+    "error_code": "0000",
+    "benchmark_id": "452a6afb-dc29-4ab6-b110-8b5923701c7b",
+    "library": "scipy",
+    "problem": "bruss",
+    "solver": "RK45",
+    "tolerance": 1e-06,
+    "thread_count": 2,
+    "status": "completed",
+    "error": 1.5e-06,
+    "execution_time_ms": 50.0
+}

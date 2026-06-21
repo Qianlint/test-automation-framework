@@ -1,0 +1,54 @@
+{
+    "error_code": "0000",
+    "solvers": {
+        "scipy": [
+            "RK45",
+            "RK23",
+            "DOP853",
+            "Radau",
+            "BDF",
+            "LSODA"
+        ],
+        "eppeer": [
+            "EPP3f4",
+            "EPP4y3",
+            "EPP5f3",
+            "EPP6j1",
+            "EPP7f4",
+            "EPP8d",
+            "EPP9f2"
+        ],
+        "hairer": [
+            "dopri5",
+            "rk4",
+            "rk45"
+        ],
+        "boost_odeint": [
+            "rk4",
+            "rk45",
+            "dopri5"
+        ],
+        "matlab": [
+            "ode45",
+            "ode23",
+            "ode23s",
+            "ode113",
+            "ode15s",
+            "ode23tb"
+        ],
+        "ubt_ai2_rk": [
+            "seq_A",
+            "seq_E",
+            "seq_F",
+            "seq_PipeD",
+            "pthreads_A",
+            "pthreads_E",
+            "pthreads_F",
+            "pthreads_PipeD",
+            "pthreads_AEblock",
+            "mpi_A",
+            "mpi_E",
+            "mpi_AEblock"
+        ]
+    }
+}

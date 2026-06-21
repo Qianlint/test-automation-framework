@@ -1,0 +1,3 @@
+INFO     autotest:send_request.py:12 Test case: Submit with invalid problem | API: Submit Benchmark | URL: http://127.0.0.1:8787/api/v1/benchmark/submit
+INFO     autotest:send_request.py:22 Status code: 400
+INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 400}}]

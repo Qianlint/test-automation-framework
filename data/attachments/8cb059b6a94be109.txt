@@ -1,0 +1,10 @@
+INFO     autotest:send_request.py:12 Test case: Verify benchmark results | API: Get Benchmark Results | URL: http://127.0.0.1:8787/api/v1/benchmark/452a6afb-dc29-4ab6-b110-8b5923701c7b/results
+INFO     autotest:send_request.py:22 Status code: 200
+INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '0000'}}, {'db': "SELECT * FROM testcase WHERE library = 'scipy' AND problem = 'bruss' AND solver = 'RK45'"}]
+INFO     autotest:assertions.py:73 Equality assertion passed: actual result {'error_code': '0000'} equals expected result: {'error_code': '0000'}
+INFO     autotest:connection.py:30 Connected to MySQL successfully---
+            host：127.0.0.1
+            port：3306
+            db：autotest
+            
+INFO     autotest:assertions.py:159 Database assertion passed

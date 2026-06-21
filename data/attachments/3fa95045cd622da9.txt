@@ -1,0 +1,6 @@
+INFO     autotest:send_request.py:12 Test case: Submit valid benchmark | API: Submit Benchmark | URL: http://127.0.0.1:8787/api/v1/benchmark/submit
+INFO     autotest:send_request.py:22 Status code: 200
+INFO     autotest:api_util.py:165 Extracted API response value: 
+INFO     autotest:read_yaml.py:27 Extracted data saved: {'benchmark_id': '9803fb25-7344-4849-9e36-6c95ce30b423'}
+INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '0000'}}]
+INFO     autotest:assertions.py:73 Equality assertion passed: actual result {'error_code': '0000'} equals expected result: {'error_code': '0000'}

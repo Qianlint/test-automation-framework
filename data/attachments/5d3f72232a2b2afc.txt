@@ -1,0 +1,4 @@
+INFO     autotest:send_request.py:12 Test case: Login with empty username | API: Login | URL: http://127.0.0.1:8787/api/v1/auth/login
+INFO     autotest:send_request.py:22 Status code: 200
+INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '4001'}}]
+INFO     autotest:assertions.py:73 Equality assertion passed: actual result {'error_code': '4001'} equals expected result: {'error_code': '4001'}
