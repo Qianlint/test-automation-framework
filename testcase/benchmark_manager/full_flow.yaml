@@ -48,4 +48,5 @@
       validation:
         - contains: {status_code: 200}
         - eq: {error_code: "0000"}
+        - db: "SELECT * FROM testcase WHERE library = 'scipy' AND problem = 'bruss' AND solver = 'RK45'"
 

@@ -50,7 +50,7 @@ class Assertions:
                         logs.error("Response text assertion failed: expected [%s], actual [%s]" % (assert_value, resp_list))
         return flag
 
-    def equal_assert(self, expected_results, actual_results, statuc_code=None):
+    def equal_assert(self, expected_results, actual_results, status_code=None):
         """
         Equality assertion mode.
         :param expected_results: Expected validation value from the YAML file
@@ -82,7 +82,7 @@ class Assertions:
             raise TypeError('Equality assertion type error: expected and actual results must be dictionaries!')
         return flag
 
-    def not_equal_assert(self, expected_results, actual_results, statuc_code=None):
+    def not_equal_assert(self, expected_results, actual_results, status_code=None):
         """
         Inequality assertion mode.
         :param expected_results: Expected validation value from the YAML file

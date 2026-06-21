@@ -101,11 +101,6 @@ class RequestBase:
                     allure.attach(json.dumps(file), 'Uploaded file')
                     files = {fk: open(fv, mode='rb')}
 
-            res = self.run.run_main(name=api_name, url=url, case_name=case_name, header=header, method=method,
-                                    file=files, cookies=cookie, **test_case)
-            status_code = res.status_code
-            allure.attach(self.allure_attach_response(res.json()), 'API response', allure.attachment_type.TEXT)
-
             for attempt in range(max_attempts):
                 res = self.run.run_main(name=api_name, url=url, case_name=case_name, header=header, method=method,
                                         file=files, cookies=cookie, **test_case)
@@ -117,6 +112,7 @@ class RequestBase:
                         self.extract_data(extract, res.text)
                     if extract_list is not None:
                         self.extract_data_list(extract_list, res.text)
+                    validation = json.loads(self.replace_load(json.dumps(validation)))
                     self.asserts.assert_result(validation, res_json, status_code)
                     break
                 except JSONDecodeError as js:

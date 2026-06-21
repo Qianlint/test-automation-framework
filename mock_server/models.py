@@ -31,3 +31,5 @@ class BenchmarkSample(Base):
     created_at = Column(TIMESTAMP, server_default=func.now())
 
     testcase = relationship('Testcase', back_populates='samples')
+
+Base.metadata.create_all(engine)
