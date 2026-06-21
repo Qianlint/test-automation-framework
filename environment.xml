@@ -1,7 +1,7 @@
 <environment>
     <parameter>
         <key>Project</key>
-        <value>ODE Benchmark API Test Automation</value>
+        <value>API Test Automation</value>
     </parameter>
     <parameter>
         <key>Environment</key>
@@ -29,6 +29,6 @@
     </parameter>
     <parameter>
         <key>Email</key>
-        <value>tangqianlin09@gmail.com</value>
+        <value>example@gmail.com</value>
     </parameter>
 </environment>
