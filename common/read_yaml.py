@@ -33,6 +33,20 @@ class ReadYamlData:
 
 
 def get_testcase_yaml(file_path):
-    """Load test case data from a YAML file."""
-    with open(file_path, encoding='utf-8') as f:
-        return yaml.safe_load(f)
+    """Load and package test case data from a YAML file.
+    Single-group files return [[baseInfo, tc], ...] ready for parametrize.
+    Multi-group files return raw data.
+    """
+    try:
+        with open(file_path, encoding='utf-8') as f:
+            data = yaml.safe_load(f)
+        if len(data) == 1:
+            base_info = data[0].get('baseInfo')
+            return [[base_info, tc] for tc in data[0].get('testCase', [])]
+        return data
+    except FileNotFoundError:
+        logs.error(f'[{file_path}] file not found, check the path')
+    except UnicodeDecodeError:
+        logs.error(f'[{file_path}] encoding error, ensure the file is UTF-8')
+    except Exception as e:
+        logs.error(f'Error loading [{file_path}]: {str(e)}')

@@ -16,5 +16,5 @@ class TestBenchmarkManager:
         for case in case_flow
         for tc in case['testCase']
     ])
-    def test_full_flow(self, base_info, test_case):
+    def test_full_flow(self, system_login, base_info, test_case):
         RequestBase().specification_yaml(base_info, test_case)

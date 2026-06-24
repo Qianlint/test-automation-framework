@@ -45,3 +45,14 @@
         tolerance: -0.001
       validation:
         - contains: {status_code: 400}
+
+    - case_name: Submit with tolerance=0 expects application-level error code
+      params:
+        library: scipy
+        problem: bruss
+        solver: RK45
+        tolerance: 0
+        thread_count: 1
+      validation:
+        - contains: {status_code: 200}
+        - eq: {error_code: "4003"}

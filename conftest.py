@@ -25,11 +25,14 @@ def clear_extract():
     yfd.clear_yaml_data()
     remove_file("./report/temp", ['json', 'txt', 'attach', 'properties'])
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(scope='session', autouse=False)
 def system_login(clear_extract):
+    existing = yfd.get_extract_yaml('token')
+    if existing:
+        return
     try:
-        api_info = get_testcase_yaml('./testcase/single_interface/login.yaml')
-        RequestBase().specification_yaml(api_info[0]['baseInfo'], api_info[0]['testCase'][0])
+        api_info = get_testcase_yaml('./conf/system_login.yaml')
+        RequestBase().specification_yaml(api_info[0][0], api_info[0][1]) 
     except Exception as e:
         logs.error(f'Login failed, cannot continue: {e}')
         exit()

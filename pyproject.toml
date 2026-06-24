@@ -1,7 +1,7 @@
 [project]
 name = "autotest-framework"
 version = "0.1.0"
-description = "Add your description here"
+description = "Data-driven REST API test automation framework with pytest, Docker, CI, and Allure reporting deployed to GitHub Pages."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
