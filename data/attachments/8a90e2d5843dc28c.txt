@@ -1,0 +1,6 @@
+INFO     autotest:send_request.py:12 Test case: Submit with tolerance=0 expects application-level error code | API: Submit Benchmark | URL: http://127.0.0.1:8787/api/v1/benchmark/submit
+INFO     autotest:send_request.py:22 Status code: 400
+INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '4003'}}]
+ERROR    autotest:assertions.py:37 Contains assertion failed: response status code [400] does not equal [200]
+ERROR    autotest:assertions.py:65 Equality assertion failed: no common keys between expected {'error_code': '4003'} and actual {'detail': 'Tolerance must be positive'}
+ERROR    autotest:api_util.py:126

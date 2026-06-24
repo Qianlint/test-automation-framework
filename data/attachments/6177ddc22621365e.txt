@@ -1,19 +1,19 @@
-INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/452a6afb-dc29-4ab6-b110-8b5923701c7b/status
+INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/839d1840-6d42-4312-8652-0db5166a0da0/status
 INFO     autotest:send_request.py:22 Status code: 200
 INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '0000'}}, {'eq': {'status': 'completed'}}]
 INFO     autotest:assertions.py:73 Equality assertion passed: actual result {'error_code': '0000'} equals expected result: {'error_code': '0000'}
 ERROR    autotest:assertions.py:78 Equality assertion failed: actual result {'status': 'pending'} does not equal expected result: {'status': 'completed'}
-INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/452a6afb-dc29-4ab6-b110-8b5923701c7b/status
+INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/839d1840-6d42-4312-8652-0db5166a0da0/status
 INFO     autotest:send_request.py:22 Status code: 200
 INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '0000'}}, {'eq': {'status': 'completed'}}]
 INFO     autotest:assertions.py:73 Equality assertion passed: actual result {'error_code': '0000'} equals expected result: {'error_code': '0000'}
 ERROR    autotest:assertions.py:78 Equality assertion failed: actual result {'status': 'pending'} does not equal expected result: {'status': 'completed'}
-INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/452a6afb-dc29-4ab6-b110-8b5923701c7b/status
+INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/839d1840-6d42-4312-8652-0db5166a0da0/status
 INFO     autotest:send_request.py:22 Status code: 200
 INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '0000'}}, {'eq': {'status': 'completed'}}]
 INFO     autotest:assertions.py:73 Equality assertion passed: actual result {'error_code': '0000'} equals expected result: {'error_code': '0000'}
 ERROR    autotest:assertions.py:78 Equality assertion failed: actual result {'status': 'pending'} does not equal expected result: {'status': 'completed'}
-INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/452a6afb-dc29-4ab6-b110-8b5923701c7b/status
+INFO     autotest:send_request.py:12 Test case: Check benchmark status is completed | API: Get Benchmark Status | URL: http://127.0.0.1:8787/api/v1/benchmark/839d1840-6d42-4312-8652-0db5166a0da0/status
 INFO     autotest:send_request.py:22 Status code: 200
 INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '0000'}}, {'eq': {'status': 'completed'}}]
 INFO     autotest:assertions.py:73 Equality assertion passed: actual result {'error_code': '0000'} equals expected result: {'error_code': '0000'}

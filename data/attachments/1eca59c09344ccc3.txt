@@ -1,5 +1,0 @@
-{
-    "error_code": "0000",
-    "benchmark_id": "452a6afb-dc29-4ab6-b110-8b5923701c7b",
-    "status": "pending"
-}

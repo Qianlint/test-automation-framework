@@ -1,0 +1,5 @@
+INFO     autotest:send_request.py:12 Test case: SQL injection input expects security-specific error code | API: Login | URL: http://127.0.0.1:8787/api/v1/auth/login
+INFO     autotest:send_request.py:22 Status code: 200
+INFO     autotest:assertions.py:175 Expected result from YAML file: [{'contains': {'status_code': 200}}, {'eq': {'error_code': '9999'}}]
+ERROR    autotest:assertions.py:78 Equality assertion failed: actual result {'error_code': '4001'} does not equal expected result: {'error_code': '9999'}
+ERROR    autotest:api_util.py:126
