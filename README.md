@@ -7,7 +7,7 @@ A bundled mock server serves as a demonstration backend for REST API tests.
 
 
 
-## Quick start:
+## Quick start
 
 ```bash
 # 1. start the mock server
