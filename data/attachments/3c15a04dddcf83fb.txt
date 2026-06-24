@@ -1,5 +1,5 @@
 {
     "error_code": "0000",
     "message": "Benchmark submitted",
-    "benchmark_id": "d3a06822-bd2c-4c19-9a7e-b7bfda60e041"
+    "benchmark_id": "344257f0-c588-4c52-955e-088e37eb0502"
 }
